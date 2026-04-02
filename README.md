@@ -15,6 +15,30 @@ cp .env.example .env.local
 npm install
 ```
 
+## Push to GitHub (first time)
+
+Signing into **Vercel** does not log in the **GitHub CLI** on your machine. The repo is already committed locally on `main`. Do this once in **PowerShell** (GitHub CLI was installed as `gh`):
+
+```powershell
+cd C:\Users\lksey\idea-product-builder
+gh auth login -h github.com -p https -w
+```
+
+Complete the browser/device flow, then create the remote repo and push:
+
+```powershell
+gh repo create idea-product-builder --public --source=. --remote=origin --push
+```
+
+Use a different name with `gh repo create my-repo-name ...` if `idea-product-builder` is already taken on your account.
+
+**Without `gh`:** create an empty repo at [github.com/new](https://github.com/new), then:
+
+```powershell
+git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
+git push -u origin main
+```
+
 ## Scripts
 
 | Command        | Purpose                          |
