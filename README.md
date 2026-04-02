@@ -24,11 +24,19 @@ cd C:\Users\lksey\idea-product-builder
 gh auth login -h github.com -p https -w
 ```
 
-Complete the browser/device flow, then create the remote repo and push:
+Complete the browser/device flow, then either run the helper script:
+
+```powershell
+.\scripts\push-to-github.ps1
+```
+
+Or create the remote and push in one step:
 
 ```powershell
 gh repo create idea-product-builder --public --source=. --remote=origin --push
 ```
+
+The script also accepts a **classic PAT** for non-interactive use: set `$env:GITHUB_TOKEN` (with `repo` scope), then run `.\scripts\push-to-github.ps1`.
 
 Use a different name with `gh repo create my-repo-name ...` if `idea-product-builder` is already taken on your account.
 
